@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Student Study Planner</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <h1>Plan Smarter. Study Better.</h1>
+        <p>Organize your assignments, manage deadlines, and stay on top of your studies with one simple planner.</p>
+        <a href="{{ url_for('login')}}" class="btn">Login</a>
+        <a href="{{ url_for('register')}}" class="btn">Register</a>
+        <a href="{{ url_for('dashboard') }}" class="btn">Dashboard</a>
+    </body>
+</html>
