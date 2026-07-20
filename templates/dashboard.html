@@ -4,305 +4,54 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>My Dashboard</title>
-        <style>
-             * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
-            body {
-                font-family: 'Poppins', 'Segoe UI', sans-serif;
-                background-color: #2E1A47;
-                min-height: 100vh;
-                display: flex;
-                justify-content: center;
-                padding: 60px 40px;
-            }
-
-            .dashboard {
-                width: 100%;
-                max-width: 1500px;
-                display: grid;
-                grid-template-columns: 320px 1fr;
-                gap: 30px;
-            }
-
-            .todo-list {
-                max-width: 500px;
-                overflow-y: auto;
-            }
-
-            .header {
-                background: #4B2E6F;
-                color: #F5F0FA;
-                padding: 28px;
-                border-radius: 16px;
-                text-align: center;
-                grid-column: 1;
-                grid-row: 1;
-            }
-
-            .header h1 {
-                font-size: 30px;
-                font-weight: 700;
-                letter-spacing: 0.5px;
-                margin-bottom: 8px;
-            }
-
-            .header p {
-                font-size: 14px;
-                letter-spacing: 0.5px;
-                opacity: 0.85;
-            }
-
-            .date-box {
-                background: #D8C3EB;
-                padding: 28px;
-                border-radius: 12px;
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                grid-column: 1;
-                grid-row: 2;
-            }
-
-            .date-box h2 {
-                font-size: 16px;
-                font-weight: 500;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                color: #4B2E6F;
-                margin-bottom: 6px;
-            }
-
-            .date-box .date {
-                font-size: 24px;
-                font-weight: 700;
-                color: #2E1A47;
-            }
-
-            .add-task {
-                background: #EDE3F5;
-                padding: 28px;
-                border-radius: 12px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                grid-column: 2;
-                grid-row: 1;
-            }
-
-            .add-task h2 {
-                font-size: 20px;
-                font-weight: 600;
-                color: #4B2E6F;
-                margin-bottom: 16px;
-                text-align: left;
-                width: 100%;
-            }
-
-            .form-container {
-                display: flex;
-                gap: 12px;
-                width: 100%;
-            }
-
-            #taskInput {
-                flex: 1;
-                padding: 12px 16px;
-                border: 2px solid #C9AEE0;
-                border-radius: 8px;
-                font-size: 15px;
-                font-family: inherit;
-                outline: none;
-                transition: border-color 0.3s;
-            }
-
-            #taskInput:focus {
-                border-color: #7A4FA3;
-            }
-
-            #addBtn {
-                padding: 12px 26px;
-                background: #7A4FA3;
-                color: #ffffff;
-                border: none;
-                border-radius: 8px;
-                font-size: 15px;
-                font-weight: 600;
-                letter-spacing: 0.3px;
-                cursor: pointer;
-                transition: background 0.3s, opacity 0.3s;
-            }
-
-            #addBtn:hover {
-                background: #6A3F93;
-                opacity: 0.95;
-            }
-
-            .todo-list {
-                background: #EDE3F5;
-                padding: 28px;
-                border-radius: 12px;
-                grid-column: 2;
-                grid-row: 2;
-                max-width: none;
-            }
-
-            .todo-list h2 {
-                font-size: 20px;
-                font-weight: 600;
-                color: #4B2E6F;
-                margin-bottom: 16px;
-                text-align: left;
-            }
-
-            #taskList {
-                list-style: none;
-            }
-
-            .task {
-                display: flex;
-                align-items: center;
-                padding: 14px 16px;
-                background: #ffffff;
-                border: 2px solid #E4D6F0;
-                border-radius: 10px;
-                margin-bottom: 10px;
-                transition: background 0.3s, border-color 0.3s;
-            }
-
-            .task:hover {
-                background: #FAF6FE;
-                border-color: #C9AEE0;
-            }
-
-            .task input[type="checkbox"] {
-                width: 20px;
-                height: 20px;
-                margin-right: 14px;
-                accent-color: #7A4FA3;
-                cursor: pointer;
-            }
-
-            .task label {
-                font-size: 16px;
-                color: #3A2450;
-                cursor: pointer;
-                flex: 1;
-                text-align: left;
-                transition: all 0.3s;
-            }
-
-            .task input[type="checkbox"]:checked + label {
-                text-decoration: line-through;
-                color: #9A85AE;
-            }
-
-            .delete-btn {
-                background: #B44FA0;
-                color: #ffffff;
-                border: none;
-                border-radius: 6px;
-                padding: 6px 14px;
-                font-size: 12px;
-                font-weight: 600;
-                cursor: pointer;
-                transition: background 0.3s;
-            }
-
-            .delete-btn:hover {
-                background: #953C82;
-            }
-
-            .empty-message {
-                text-align: center;
-                color: #9A7FB5;
-                padding: 30px;
-                font-style: italic;
-                font-size: 15px;
-            }
-
-            .image-card {
-                grid-column: 3;
-                grid-row: 1 / span 2;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 20px;
-            }
-
-            .image-card img {
-                width: 100%;
-                max-width: 320px;
-                height: auto;
-                object-fit: contain;
-            }
-
-            @media (max-width: 900px) {
-                .dashboard {
-                    grid-template-columns: 1fr;
-                }
-
-                .header
-                .add-task
-                .date-box
-                .todo-list {
-                    grid-column: auto;
-                    grid-row: auto;
-                }
-            }
-
-        </style>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
-    <body class="dashboard">
+    <body class="dashboard-page">
+        <div class="dashboard">
+                    <div class="header">
+                        <h1>My Dashboard</h1>
+                        <p>stay organized. stay productive.</p>
+                    </div>
 
-        <div class="header">
-            <h1>My Dashboard</h1>
-            <p>stay organized. stay productive.</p>
-        </div>
+                    <div class="date-box">
+                        <h2>Today's Date</h2>
+                        <p class="date" id="currentDate"></p>
+                    </div>
 
-        <div class="date-box">
-            <h2>Today's Date</h2>
-            <p class="date" id="currentDate"></p>
-        </div>
+                    <div class="add-task">
+                        <h2>Add a New Task</h2>
+                        <form class="form-container" action="/dashboard" method="POST">
+                            <input type="text" name="task" id="taskInput" placeholder="enter your task..." >
+                            <button id="addBtn">Add</button>
+                        </form>
+                    </div>
 
-        <div class="add-task">
-            <h2>Add a New Task</h2>
-            <form class="form-container" action="/dashboard" method="POST">
-                <input type="text" name="task" id="taskInput" placeholder="enter your task..." >
-                <button id="addBtn">Add</button>
-            </form>
-        </div>
+                    <div class="todo-list">
+                        <h2>My To Do List</h2>
+                        <ul id="taskList">
+                        {% if tasks %}
 
-        <div class="todo-list">
-            <h2>My To Do List</h2>
-            <ul id="taskList">
-            {% if tasks %}
+                            {% for task in tasks %}
+                                <li class="task">
+                                    <input type="checkbox">
+                                    <label>{{ task.task }}</label>
+                                    <form action="/delete" method="POST">
+                                        <input type="hidden" name="id" value="{{ task.id }}">
+                                        <button type="submit" class="delete-btn">delete</button>
+                                    </form>
+                                </li>
+                            {% endfor %}
 
-                {% for task in tasks %}
-                   <li class="task">
-                       <input type="checkbox">
-                       <label>{{ task.task }}</label>
-                       <form action="/delete" method="POST">
-                            <input type="hidden" name="id" value="{{ task.id }}">
-                            <button type="submit" class="delete-btn">delete</button>
-                       </form>
-                   </li>
-                {% endfor %}
+                        {% else %}
 
-            {% else %}
+                            <li class="empty-message">
+                                No tasks yet. Add one above!
+                            </li>
 
-                <li class="empty-message">
-                    No tasks yet. Add one above!
-                </li>
+                        {% endif %}
+                        </ul>
 
-            {% endif %}
-            </ul>
-
+                    </div>
         </div>
 
         <script>
