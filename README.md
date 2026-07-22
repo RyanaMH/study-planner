@@ -1,7 +1,5 @@
 # Study Planner
 
-#### Video Demo: <PASTE YOUR YOUTUBE VIDEO URL HERE>
-
 #### Description:
 
 Study Planner is a web application built with Python, Flask, HTML, CSS, and SQLite that helps users organize their study tasks in a simple and user-friendly interface.
