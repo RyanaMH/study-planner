@@ -1,39 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Student Study Planner</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    </head>
-    <body class="index-page">
+<head>
+    <title>Student Study Planner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="index-page">
     <div class="hero">
         <div class="hero-text">
-            <span class="badge">📚 Student Productivity</span>
 
             <h1>Plan Smarter.<br>Study Better.</h1>
 
             <p>
-                Organize assignments, track deadlines, and stay focused with a
-                clean study planner designed for students who want less stress
-                and better grades.
+                Organize your assignments, manage deadlines, and stay on top of your studies with one simple planner.
             </p>
 
             <div class="hero-buttons">
                 <a href="{{ url_for('register') }}" class="btn primary">Get Started</a>
                 <a href="{{ url_for('login') }}" class="btn secondary">I already have an account</a>
             </div>
-        </div>
 
-        <div class="hero-visual">
-            <div class="floating-card">
-                <h3>Today’s Tasks</h3>
-                <ul>
-                    <li>✔ Chemistry assignment</li>
-                    <li>✔ Math practice</li>
-                    <li>⏳ Physics lab report</li>
-                </ul>
-            </div>
+            <img src="{{ url_for('static', filename='images/book-lover-25.png') }}" alt="Study illustration" class="hero-image">
+
         </div>
-    </div>
 </body>
 </html>
