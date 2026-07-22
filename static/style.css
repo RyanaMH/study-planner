@@ -7,12 +7,10 @@
 .index-page {
     font-family: 'Poppins', sans-serif;
     color: #F5F0FA;
-
     background:
         radial-gradient(circle at top left, rgba(139, 92, 246, 0.35), transparent 30%),
         radial-gradient(circle at bottom right, rgba(236, 72, 153, 0.18), transparent 30%),
         linear-gradient(160deg, #140B22 0%, #241238 40%, #3A1F59 100%);
-
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -22,32 +20,28 @@
     position: relative;
 }
 
-/* subtle grid texture */
-.index-page::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-    background-size: 40px 40px;
-    mask-image: radial-gradient(circle at center, black 45%, transparent 85%);
-    pointer-events: none;
+.index-page::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at top left,
+        rgba(255,255,255,.05),
+        transparent 45%);
+    pointer-events:none;
 }
 
 .hero {
     width: 100%;
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 48px;
+    max-width: 900px;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    position: relative;
-    z-index: 1;
+    text-align: center;
 }
 
 .hero-text h1 {
-    font-size: clamp(3.2rem, 7vw, 5.5rem);
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
     line-height: 0.95;
     letter-spacing: -3px;
     margin: 18px 0;
@@ -60,17 +54,6 @@
     line-height: 1.9;
     color: rgba(245,240,250,.78);
     margin-bottom: 28px;
-}
-
-.badge {
-    display: inline-block;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: rgba(255,255,255,.08);
-    border: 1px solid rgba(255,255,255,.14);
-    color: #E9D8FD;
-    font-size: 0.9rem;
-    backdrop-filter: blur(8px);
 }
 
 .hero-buttons {
@@ -88,14 +71,13 @@
 }
 
 .btn.primary {
-    background: linear-gradient(135deg, #B983FF, #8B5CF6);
+    background: #7A4FA3;
     color: white;
-    box-shadow: 0 18px 35px rgba(139,92,246,.35);
 }
 
 .btn.primary:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 26px 45px rgba(139,92,246,.45);
+    background: #8B5FB8;
+    transform: translateY(-2px);
 }
 
 .btn.secondary {
@@ -110,53 +92,14 @@
     background: rgba(255,255,255,.12);
 }
 
-.hero-visual {
-    display: flex;
-    justify-content: center;
-}
-
-.floating-card {
-    width: 100%;
-    max-width: 360px;
-    padding: 28px;
-    border-radius: 24px;
-
-    background: rgba(255,255,255,.08);
-    border: 1px solid rgba(255,255,255,.16);
-    backdrop-filter: blur(16px);
-
-    box-shadow:
-        0 24px 60px rgba(0,0,0,.35),
-        inset 0 1px 0 rgba(255,255,255,.08);
-
-    transform: rotate(-3deg);
-}
-
-.floating-card h3 {
-    margin-bottom: 16px;
-    font-size: 1.2rem;
-}
-
-.floating-card ul {
-    list-style: none;
-}
-
-.floating-card li {
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,.08);
-    color: rgba(245,240,250,.9);
-}
-
-.floating-card li:last-child {
-    border-bottom: none;
+.hero-image {
+    width: 260px;
+    max-width: 100%;
+    margin-top: 50px;
+    opacity: 0.9;
 }
 
 @media (max-width: 900px) {
-    .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
     .hero-text p {
         margin-left: auto;
         margin-right: auto;
@@ -164,11 +107,6 @@
 
     .hero-buttons {
         justify-content: center;
-    }
-
-    .floating-card {
-        transform: none;
-        margin-top: 12px;
     }
 }
 
